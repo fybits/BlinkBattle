@@ -5,6 +5,7 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     [HideInInspector]
+    public float baseSpeed;
     public float speed;
     float rotationDir;
 
