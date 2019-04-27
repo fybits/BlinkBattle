@@ -45,7 +45,6 @@ public class Rocket : MonoBehaviour
         if (newPos.x < Camera.main.ViewportToWorldPoint(new Vector3(0.05f, 0, 0)).x)
             newPos.x = Camera.main.ViewportToWorldPoint(new Vector3(0.05f, 0, 0)).x;
 
-        
 
         if (newPos.x > Camera.main.ViewportToWorldPoint(new Vector3(0.4f, 0, 0)).x)
             newPos.x = Camera.main.ViewportToWorldPoint(new Vector3(0.4f, 0, 0)).x;
