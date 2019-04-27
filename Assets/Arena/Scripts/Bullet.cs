@@ -5,20 +5,40 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public int bulletId;
+    public int playerId;
 
     public int damage;
-    public float speed;
+    public float speed = 1;
     public Vector2 movDir;
 
+    public float timeToDestroy = 5f;
     // Start is called before the first frame update
     void Start()
     {
+        Destroy(gameObject, timeToDestroy);
         movDir = movDir.normalized;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.position += new Vector3(movDir.x, movDir.y, 0) * speed;
+        transform.position += new Vector3(movDir.x, movDir.y, 0) * speed * Time.deltaTime;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameObject col = collision.gameObject;
+        if (playerId == 1 && collision.gameObject.tag == "Player2")
+        {
+            col.GetComponent<Player>().health -= damage;
+            Destroy(gameObject);
+        }
+        else if (playerId == 2 && collision.gameObject.tag == "Player1")
+        {
+            Debug.Log("HIT");
+            col.GetComponent<Player>().health -= damage;
+            Destroy(gameObject);
+        }
+
     }
 }

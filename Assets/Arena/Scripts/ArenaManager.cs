@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ArenaManager : MonoBehaviour
 {
-    public Weapon[] weapons;
+    public GameObject[] weapons;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,4 +16,6 @@ public class ArenaManager : MonoBehaviour
     {
         
     }
+
+
 }

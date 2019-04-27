@@ -8,9 +8,25 @@ public class ReadyButton : MonoBehaviour
 {
     public bool state = false;
     TextMeshProUGUI text;
+    public GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
+        if (!gameManager)
+        {
+            gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        }
+
+        if (!gameManager.pl1ReadyButton)
+        {
+            gameManager.pl1ReadyButton = GameObject.FindGameObjectWithTag("pl1Button").GetComponent<Button>();
+        }
+
+        if (!gameManager.pl2ReadyButton)
+        { 
+            gameManager.pl2ReadyButton = GameObject.FindGameObjectWithTag("pl2Button").GetComponent<Button>();
+        }
+
         text = GetComponentInChildren<TextMeshProUGUI>();
         text.text = "Ready";
     }

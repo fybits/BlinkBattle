@@ -12,10 +12,12 @@ public class Weapon : MonoBehaviour
     public int fireSpeed;
 
     public GameObject bullet;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = transform.parent.gameObject;
         Sprite weaponSkin = Resources.Load<Sprite>("Arena/Sprites/Weapons/Weapon_" + weaponId.ToString());
     }
 
@@ -27,7 +29,17 @@ public class Weapon : MonoBehaviour
 
     public void Fire()
     {
-        GameObject newBullet = Instantiate(bullet, transform.position, transform.parent.transform.rotation, transform) as GameObject;
-        newBullet.GetComponent<Bullet>().movDir = new Vector2(transform.rotation.x, transform.rotation.y);
+        // Debug.Log(transform.position);
+        GameObject newBullet = Instantiate(bullet, transform.position, transform.rotation) as GameObject;
+
+        float angle = player.transform.eulerAngles.z;
+
+        int coef = 1;
+        if (angle < 0)
+            coef = -1;
+        
+        Vector2 plMovDir = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad) * coef, Mathf.Sin(angle * Mathf.Deg2Rad) * coef);
+        newBullet.GetComponent<Bullet>().movDir = plMovDir;
+        newBullet.GetComponent<Bullet>().playerId = player.GetComponent<Player>().playerNum;
     }
 }
