@@ -7,6 +7,7 @@ public class Rocket : MonoBehaviour
     public int playerNum;
     Vector2 vel;
     public float maxSpeed = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,7 @@ public class Rocket : MonoBehaviour
 
         if (newPos.x > Camera.main.ViewportToWorldPoint(new Vector3(0.4f, 0, 0)).x)
             newPos.x = Camera.main.ViewportToWorldPoint(new Vector3(0.4f, 0, 0)).x;
+
         transform.position = newPos;
         vel.x *= 0.5f;
         Debug.Log(vel);
