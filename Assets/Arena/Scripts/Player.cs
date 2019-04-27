@@ -6,7 +6,8 @@ public class Player : MonoBehaviour
 {
     public int playerNum;
 
-    
+    public int Health = 100;
+
     Vector2 moveDir;
     Vector2 viewDir;
 
@@ -20,6 +21,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        arenaManager = FindObjectOfType<ArenaManager>().gameObject;
+
         vel = new Vector2();
 
         Sprite playerSkin = Resources.Load<Sprite>("Arena/Sprites/Player/Player_" + playerNum.ToString());
