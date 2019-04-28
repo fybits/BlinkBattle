@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 1470786147220551451}
   - component: {fileID: 1470786147220551450}
   - component: {fileID: 676035583866664348}
-  - component: {fileID: 9185589043799266239}
   - component: {fileID: 4667501095351841098}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player 1
   m_TagString: Player1
   m_Icon: {fileID: 0}
@@ -55,8 +54,12 @@ MonoBehaviour:
   speed: 1
   weaponId: 1
   weapon: {fileID: 0}
+  skillId: 0
+  skill: {fileID: 0}
   arenaManager: {fileID: 0}
-  gameManager: {fileID: 0}
+  canMove: 1
+  fireSpeed: 0
+  fireSpeedTimer: 0
 --- !u!212 &1470786147220551450
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -126,22 +129,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &9185589043799266239
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1470786147220551449}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.2
 --- !u!58 &4667501095351841098
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -152,7 +139,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
