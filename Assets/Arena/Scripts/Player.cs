@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public SkillBase skill;
 
     public GameObject shield;
+    public GameObject particles;
 
 
     public ArenaManager arenaManager;
@@ -41,7 +42,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            GetComponent<Player>().skill = new ShieldSkill(GetComponent<Player>());
+            GetComponent<Player>().skill = new BlinkSkill(GetComponent<Player>());
         }
 
         vel = new Vector2();
@@ -53,7 +54,14 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sprite = playerSkin;
         }
 
-        TakeWeapon(4);
+        if (playerNum == 1)
+        {
+            TakeWeapon(4);
+        }
+        else if (playerNum == 2)
+        {
+            TakeWeapon(2);
+        }
         fireSpeed = weapon.GetComponent<Weapon>().fireSpeed;
         fireSpeedTimer = fireSpeed;
     }
@@ -114,10 +122,9 @@ public class Player : MonoBehaviour
         }
 
         transform.position += new Vector3(vel.x, vel.y, 0);
-
+        viewDir = new Vector2(Input.GetAxis("HorizontalViewP" + playerNum), Input.GetAxis("VerticalViewP" + playerNum));
         if (playerNum == 2)
         {
-            viewDir = new Vector2(Input.GetAxis("HorizontalViewP" + playerNum), Input.GetAxis("VerticalViewP" + playerNum));
             if (viewDir.magnitude >= 0.2f)
             {
                 transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2(viewDir.y, viewDir.x) * Mathf.Rad2Deg);
@@ -129,8 +136,20 @@ public class Player : MonoBehaviour
         }
         else if (playerNum == 1)
         {
-            viewDir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
-            transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2(viewDir.y, viewDir.x) * Mathf.Rad2Deg);
+            int numOfGamepads = 0;
+            for (int i = 0; i < Input.GetJoystickNames().Length; i++)
+                if (!Input.GetJoystickNames()[i].Equals(""))
+                    numOfGamepads++;
+            if (numOfGamepads == 2) {
+                if (viewDir.magnitude >= 0.2f) {
+                    transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2(viewDir.y, viewDir.x) * Mathf.Rad2Deg);
+                } else if (input.magnitude >= 0.2f) {
+                    transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2(input.y, input.x) * Mathf.Rad2Deg);
+                }
+            } else {
+                viewDir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
+                transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2(viewDir.y, viewDir.x) * Mathf.Rad2Deg);
+            }
         }
         
         //Debug.Log(viewDir.x.ToString() + " " + viewDir.y.ToString());
