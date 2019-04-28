@@ -59,6 +59,8 @@ MonoBehaviour:
   weapon: {fileID: 0}
   skillId: 0
   shield: {fileID: 5273109574845982368, guid: 955bf5a4f375bb345aa1d7bc1fd10c30, type: 3}
+  particles: {fileID: 1325845578450795056, guid: c3bb4daca554eb248b4332b6d577ed2e,
+    type: 3}
   arenaManager: {fileID: 0}
   canMove: 1
   fireSpeed: 0
