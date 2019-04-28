@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1274399558918454665}
   - component: {fileID: 2375163387850331838}
   - component: {fileID: 939725832286876791}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BazookaBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7445621392225410352}
   - component: {fileID: 7010823597117673696}
   - component: {fileID: 4140213860296628773}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player 2
   m_TagString: Player2
   m_Icon: {fileID: 0}
@@ -55,8 +55,12 @@ MonoBehaviour:
   speed: 1
   weaponId: 1
   weapon: {fileID: 0}
+  skillId: 0
+  skill: {fileID: 0}
   arenaManager: {fileID: 0}
-  gameManager: {fileID: 0}
+  canMove: 1
+  fireSpeed: 0
+  fireSpeedTimer: 0
 --- !u!212 &7684639276315140661
 SpriteRenderer:
   m_ObjectHideFlags: 0

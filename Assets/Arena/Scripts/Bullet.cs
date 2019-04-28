@@ -31,14 +31,14 @@ public class Bullet : MonoBehaviour
         if (playerId == 1 && collision.gameObject.tag == "Player2")
         {
             col.GetComponent<Player>().health -= damage;
-            Destroy(gameObject);
         }
         else if (playerId == 2 && collision.gameObject.tag == "Player1")
         {
             Debug.Log("HIT");
             col.GetComponent<Player>().health -= damage;
-            Destroy(gameObject);
         }
 
+        if (!(playerId == 2 && collision.gameObject.tag == "Player2" || playerId == 1 && collision.gameObject.tag == "Player1"))
+            Destroy(gameObject);
     }
 }
