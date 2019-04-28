@@ -13,7 +13,7 @@ public class Obstacle : MonoBehaviour
     void Start()
     {
         transform.Rotate(Vector3.forward * Random.Range(0, 360));
-        rotationDir = Random.Range(-5, 5) * speed;
+        rotationDir = Random.Range(-5, 5) * baseSpeed;
     }
 
     // Update is called once per frame

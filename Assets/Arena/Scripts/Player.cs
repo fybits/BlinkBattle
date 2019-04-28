@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sprite = playerSkin;
         }
 
-        TakeWeapon(3);
+        TakeWeapon(4);
         fireSpeed = weapon.GetComponent<Weapon>().fireSpeed;
         fireSpeedTimer = fireSpeed;
     }
@@ -57,29 +57,11 @@ public class Player : MonoBehaviour
 
             if (fireSpeedTimer <= 0)
             {
-                if (weapon.GetComponent<Weapon>().type == 'S')
+                
+                if (Input.GetButton("FireP" + playerNum))
                 {
-                    if (Input.GetButtonDown("FireP" + playerNum))
-                    {
-                        weapon.GetComponent<Weapon>().Fire();
-                        fireSpeedTimer = fireSpeed;
-                    }
-                }
-                else if (weapon.GetComponent<Weapon>().type == 'A')
-                {
-                    if (Input.GetButton("FireP" + playerNum))
-                    {
-                        weapon.GetComponent<Weapon>().Fire();
-                        fireSpeedTimer = fireSpeed;
-                    }
-                }
-                else
-                {
-                    if (Input.GetButtonDown("FireP" + playerNum))
-                    {
-                        weapon.GetComponent<Weapon>().Fire();
-                        fireSpeedTimer = fireSpeed;
-                    }
+                    weapon.GetComponent<Weapon>().Fire();
+                    fireSpeedTimer = fireSpeed;
                 }
             }
 

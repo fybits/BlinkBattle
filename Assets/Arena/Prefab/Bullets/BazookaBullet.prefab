@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1274399558918454665}
   - component: {fileID: 2375163387850331838}
   - component: {fileID: 939725832286876791}
+  - component: {fileID: 400532752676430909}
   m_Layer: 9
   m_Name: BazookaBullet
   m_TagString: Untagged
@@ -137,3 +138,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &400532752676430909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8763797418198394147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e2a10d76e15ebd448505799a21625c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Explosion: {fileID: 4097102523314758576, guid: efccb315cd4c35242b1eea0eb1bc2332,
+    type: 3}

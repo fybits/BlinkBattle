@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,8 +11,8 @@ public class GameController : MonoBehaviour {
 
     public static GameController singleton;
 
-    int balance1 = 0;
-    int balance2 = 0;
+    public int balance1 = 0;
+    public int balance2 = 0;
 
     private void Awake() {
         singleton = this;
@@ -45,6 +46,11 @@ public class GameController : MonoBehaviour {
     public void AddMoney(int money1,int money2) {
         balance1 += money1;
         balance2 += money2;
+    }
+
+    public Tuple<int, int> GetMoney()
+    {
+        return new Tuple<int, int>(balance1, balance2);
     }
 
     public void StartGame() {
