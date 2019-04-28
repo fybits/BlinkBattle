@@ -52,11 +52,14 @@ MonoBehaviour:
   moveDir: {x: 0, y: 0}
   viewDir: {x: 0, y: 0}
   input: {x: 0, y: 0}
-  speed: 1
+  vel: {x: 0, y: 0}
+  speed: 0.5
+  friction: 0.9
+  defense: 1
   weaponId: 1
   weapon: {fileID: 0}
   skillId: 0
-  skill: {fileID: 0}
+  shield: {fileID: 5273109574845982368, guid: 955bf5a4f375bb345aa1d7bc1fd10c30, type: 3}
   arenaManager: {fileID: 0}
   canMove: 1
   fireSpeed: 0

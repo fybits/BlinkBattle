@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     public int bulletId;
     public int playerId;
 
-    public int damage;
+    public float damage;
     public float speed = 1;
     public Vector2 movDir;
 
@@ -30,12 +30,12 @@ public class Bullet : MonoBehaviour
         GameObject col = collision.gameObject;
         if (playerId == 1 && collision.gameObject.tag == "Player2")
         {
-            col.GetComponent<Player>().health -= damage;
+            col.GetComponent<Player>().health -= damage*col.GetComponent<Player>().defense;
         }
         else if (playerId == 2 && collision.gameObject.tag == "Player1")
         {
             Debug.Log("HIT");
-            col.GetComponent<Player>().health -= damage;
+            col.GetComponent<Player>().health -= damage * col.GetComponent<Player>().defense;
         }
 
         if (!(playerId == 2 && collision.gameObject.tag == "Player2" || playerId == 1 && collision.gameObject.tag == "Player1"))
