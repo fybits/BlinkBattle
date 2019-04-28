@@ -5,7 +5,7 @@ using UnityEngine;
 public class BlinkSkill : SkillBase
 {
     Player player;
-    float timer = 2;
+    float timer = 0.2f;
     bool isOnCoolDown = false;
 
     public BlinkSkill (Player player) {
@@ -20,6 +20,8 @@ public class BlinkSkill : SkillBase
     }
 
     IEnumerator Skill () {
+        GameObject.Instantiate(player.particles, player.transform.position, Quaternion.identity);
+
         player.GetComponent<Collider2D>().enabled = false;
         Vector2 tempVel = player.vel;
 
@@ -40,7 +42,7 @@ public class BlinkSkill : SkillBase
         player.vel = tempVel;
         player.GetComponent<Collider2D>().enabled = true;
         yield return new WaitForSeconds(5);
-        timer = 2;
+        timer = 0.2f;
         isOnCoolDown = false;
     }
 }

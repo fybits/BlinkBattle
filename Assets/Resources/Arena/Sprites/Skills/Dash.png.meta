@@ -1,16 +1,12 @@
 fileFormatVersion: 2
-guid: 4b9b66c8635e0294a9905b16d299860c
+guid: fd946760045547948832c9c97c09bb0e
 TextureImporter:
   fileIDToRecycleName:
-    21300000: DashAnimation_0
-    21300002: DashAnimation_1
-    21300004: DashAnimation_2
-    21300006: DashAnimation_3
-    21300008: DashAnimation_4
-    21300010: DashAnimation_5
-    21300012: DashAnimation_6
-    21300014: DashAnimation_7
-    21300016: DashAnimation_8
+    21300000: Dash_0
+    21300002: Dash_1
+    21300004: Dash_2
+    21300006: Dash_3
+    21300008: Dash_4
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -115,7 +111,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DashAnimation_0
+      name: Dash_0
       rect:
         serializedVersion: 2
         x: 0
@@ -129,13 +125,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8aef8c3fccab1fd4c892f6c32728c11b
+      spriteID: 13d72334f8678534282df9e846c59268
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DashAnimation_1
+      name: Dash_1
       rect:
         serializedVersion: 2
         x: 8
@@ -149,13 +145,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7b0253a03276b4479bb3f7c802e5d48
+      spriteID: 1b95b9e440ee0ef46903f66a90de9601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DashAnimation_2
+      name: Dash_2
       rect:
         serializedVersion: 2
         x: 16
@@ -169,13 +165,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9811fed3ec6ccc84492e6936db2ae8ab
+      spriteID: 3b257c47f0f194e48bd749c7c1dd9f9b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DashAnimation_3
+      name: Dash_3
       rect:
         serializedVersion: 2
         x: 24
@@ -189,13 +185,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9dc3fa6999f27414dba4305f5d5ccf4a
+      spriteID: 7cb6fa3bb9b78974ba5f2685396d971b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DashAnimation_4
+      name: Dash_4
       rect:
         serializedVersion: 2
         x: 32
@@ -209,87 +205,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d833ab9b4eed72409e708ff7ab97a85
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DashAnimation_5
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c6a3efc342a77b844b34056e182a8a4c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DashAnimation_6
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1b150004dfc36cf45bd99fac67ee40af
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DashAnimation_7
-      rect:
-        serializedVersion: 2
-        x: 56
-        y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 706d9404d411dd04a95e5b507420e290
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DashAnimation_8
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f6c098257f4bc0f45a18ca0b72c2e059
+      spriteID: 3bdd003ec0a22a54ea1a51ecdf84d8bd
       vertices: []
       indices: 
       edges: []
@@ -297,7 +213,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: f79c4998c6a308b45a83e861764829bf
+    spriteID: dbbcfb5db24717e40bc591de066625f7
     vertices: []
     indices: 
     edges: []

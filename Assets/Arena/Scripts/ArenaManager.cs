@@ -5,17 +5,6 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-class PlayerItems
-{
-    public PlayerItems()
-    {
-        this.weaponId = 0;
-        this.skillId = 0;
-    }
-
-    int weaponId;
-    int skillId;
-}
 
 public class ArenaManager : MonoBehaviour
 {
@@ -30,8 +19,11 @@ public class ArenaManager : MonoBehaviour
     public GameObject BlackBackground;
     public GameObject FightSign;
 
-    PlayerItems pl1Items;
-    PlayerItems pl2Items;
+    // Player items
+    public int pl1weaponId = 0;
+    public int pl1skillId = 0;
+    public int pl2weaponId = 0;
+    public int pl2skillId = 0;
 
     public GameObject plShop;
     public Button pl1ReadyButton;
@@ -54,15 +46,24 @@ public class ArenaManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pl1Score = GameController.singleton.GetMoney().Item1;
-        pl2Score = GameController.singleton.GetMoney().Item2;
+        if (GameController.singleton)
+        {
+            pl1Score = GameController.singleton.GetMoney().Item1;
+            pl2Score = GameController.singleton.GetMoney().Item2;
+        }
+        else
+        {
+            pl1Score = 101;
+            pl2Score = 101;
+        }
         pl1ScoreText.text = pl1Score.ToString();
         pl2ScoreText.text = pl2Score.ToString();
     }
 
     // Update is called once per frame
     void Update()
-    {
+    { 
+
         if (arenaLoaded == false && pl1ReadyButton.GetComponent<ReadyButton>().state == true
             && pl2ReadyButton.GetComponent<ReadyButton>().state == true)
         {
@@ -135,6 +136,7 @@ public class ArenaManager : MonoBehaviour
         winText.SetActive(true);
         endGameButton.gameObject.SetActive(true);
     }
+
 
     public void Retry()
     {
