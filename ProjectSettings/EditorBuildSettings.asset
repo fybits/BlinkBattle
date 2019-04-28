@@ -9,7 +9,10 @@ EditorBuildSettings:
     path: Assets/MainMenu/MainMenu.unity
     guid: 8c889f9ed1e536943ad752137590e525
   - enabled: 1
-    path: Assets/MiniGames/RocketRace/rocketrace.unity
+    path: Assets/MiniGames/MiniGames.unity
+    guid: f6a64b5b2cc5b344d8d9943eb174cb5b
+  - enabled: 1
+    path: Assets/MiniGames/RocketRace/RocketRace.unity
     guid: b42f2bc4f255b5f40b61c51ae03fef75
   - enabled: 1
     path: Assets/Arena/ArenaScene.unity

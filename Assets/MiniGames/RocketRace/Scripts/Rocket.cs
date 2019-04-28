@@ -72,6 +72,7 @@ public class Rocket : MonoBehaviour {
         Obstacle obs = collision.GetComponent<Obstacle>();
         if (obs) {
             isDead = true;
+            RocketRaceManager.singleton.DeathNotification(playerNum);
             Explosion exp = Instantiate(explosion, transform.position, Quaternion.identity).GetComponent<Explosion>();
             exp.vel = -Vector3.right * collision.GetComponent<Obstacle>().speed;
             //SceneManager.LoadScene("rocketrace");
