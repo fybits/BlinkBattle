@@ -14,10 +14,7 @@ public class UIManager : MonoBehaviour
         singleton = this;
     }
     
-
-
     public void ShowGameInfo(MiniGame info) {
-        
         GameInfo.SetActive(true);
         GameInfo.transform.Find("Title").GetComponent<TextMeshProUGUI>().text = info.Name;
         GameInfo.transform.Find("Description").GetComponent<TextMeshProUGUI>().text = info.Description;

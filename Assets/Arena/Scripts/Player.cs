@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sprite = playerSkin;
         }
 
-        TakeWeapon(3);
+        TakeWeapon(4);
         fireSpeed = weapon.GetComponent<Weapon>().fireSpeed;
         fireSpeedTimer = fireSpeed;
     }

@@ -21,7 +21,11 @@ public class UIManagerInGame : MonoBehaviour
         popup.gameObject.SetActive(false);
     }
 
-    public void ShowResults(int first, int second) {
-
+    public void ShowResults(int first, int firstExtra, int second, int secondExtra) {
+        resultTable.SetActive(true);
+        resultTable.transform.Find("first").GetComponent<TextMeshProUGUI>().text = "+" + first;
+        resultTable.transform.Find("second").GetComponent<TextMeshProUGUI>().text = "+" + second;
+        resultTable.transform.Find("firstExtra").GetComponent<TextMeshProUGUI>().text = "+" + firstExtra;
+        resultTable.transform.Find("secondExtra").GetComponent<TextMeshProUGUI>().text = "+" + secondExtra;
     }
 }

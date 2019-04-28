@@ -11,8 +11,8 @@ public class GameController : MonoBehaviour {
 
     public static GameController singleton;
 
-    int balance1 = 0;
-    int balance2 = 0;
+    public int balance1 = 0;
+    public int balance2 = 0;
 
     private void Awake() {
         singleton = this;
