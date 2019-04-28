@@ -290,9 +290,6 @@ MonoBehaviour:
   - Name: Rocket Race
     SceneName: RocketRace
     Description: 'Welcome to the space motherf*ckers. Avoid for your life. '
-  - Name: Rocket Race HUi
-    SceneName: RocketRace
-    Description: Nu prikol
 --- !u!4 &1767014171
 Transform:
   m_ObjectHideFlags: 0
