@@ -27,15 +27,21 @@ public class ArenaManager : MonoBehaviour
 
     public CameraController cam;
 
+    public GameObject BlackBackground;
+    public GameObject FightSign;
+
     PlayerItems pl1Items;
     PlayerItems pl2Items;
 
+    public GameObject plShop;
     public Button pl1ReadyButton;
     public Button pl2ReadyButton;
     public Button endGameButton;
 
     public int pl1Score;
     public int pl2Score;
+    public TextMeshProUGUI pl1ScoreText;
+    public TextMeshProUGUI pl2ScoreText;
 
     public bool arenaLoaded = false;
     public bool gameEnded = false;
@@ -48,7 +54,10 @@ public class ArenaManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        pl1Score = GameController.singleton.GetMoney().Item1;
+        pl2Score = GameController.singleton.GetMoney().Item2;
+        pl1ScoreText.text = pl1Score.ToString();
+        pl2ScoreText.text = pl2Score.ToString();
     }
 
     // Update is called once per frame
@@ -57,19 +66,21 @@ public class ArenaManager : MonoBehaviour
         if (arenaLoaded == false && pl1ReadyButton.GetComponent<ReadyButton>().state == true
             && pl2ReadyButton.GetComponent<ReadyButton>().state == true)
         {
-            LoadFight();
-            arenaLoaded = true;
+            plShop.SetActive(false);
+            if (BlackBackground.GetComponent<SpriteRenderer>().color.a > 0) {
+                BlackBackground.GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, 0.01f);
+                Debug.Log("loop");
+            }
+            else
+            {
+                BlackBackground.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0f);
+                LoadFight();
+                arenaLoaded = true;
+            }
         }
     }
 
-    private void LoadItems()
-    {
-        int itemsNum = 3;
-        for (int i = 0; i < itemsNum; i++)
-        {
-
-        }
-    }
+  
 
     private void LoadFight()
     {
@@ -94,17 +105,19 @@ public class ArenaManager : MonoBehaviour
         //}
 
         // Players
+
         Vector3 pl1SpawnPos = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width * 0.25f, Screen.height * 0.5f, 0));
         Vector3 pl2SpawnPos = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width * 0.75f, Screen.height * 0.5f, 0));
 
         pl1SpawnPos.z += 10;
         pl2SpawnPos.z += 10;
 
-        pl1ReadyButton.gameObject.SetActive(false);
-        pl2ReadyButton.gameObject.SetActive(false);
+        FightSign.SetActive(true);
+        Destroy(FightSign, 2f);
 
         GameObject player1 = Instantiate(pl1, pl1SpawnPos, Quaternion.identity) as GameObject;
         GameObject player2 = Instantiate(pl2, pl2SpawnPos, Quaternion.identity) as GameObject;
+
         cam.pl1 = player1;
         cam.pl2 = player2;
         cam.initialDistance = Vector3.Distance(player1.transform.position, player2.transform.position);

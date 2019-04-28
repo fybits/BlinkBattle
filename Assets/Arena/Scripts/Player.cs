@@ -57,29 +57,11 @@ public class Player : MonoBehaviour
 
             if (fireSpeedTimer <= 0)
             {
-                if (weapon.GetComponent<Weapon>().type == 'S')
+                
+                if (Input.GetButton("FireP" + playerNum))
                 {
-                    if (Input.GetButtonDown("FireP" + playerNum))
-                    {
-                        weapon.GetComponent<Weapon>().Fire();
-                        fireSpeedTimer = fireSpeed;
-                    }
-                }
-                else if (weapon.GetComponent<Weapon>().type == 'A')
-                {
-                    if (Input.GetButton("FireP" + playerNum))
-                    {
-                        weapon.GetComponent<Weapon>().Fire();
-                        fireSpeedTimer = fireSpeed;
-                    }
-                }
-                else
-                {
-                    if (Input.GetButtonDown("FireP" + playerNum))
-                    {
-                        weapon.GetComponent<Weapon>().Fire();
-                        fireSpeedTimer = fireSpeed;
-                    }
+                    weapon.GetComponent<Weapon>().Fire();
+                    fireSpeedTimer = fireSpeed;
                 }
             }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -45,6 +46,11 @@ public class GameController : MonoBehaviour {
     public void AddMoney(int money1,int money2) {
         balance1 += money1;
         balance2 += money2;
+    }
+
+    public Tuple<int, int> GetMoney()
+    {
+        return new Tuple<int, int>(balance1, balance2);
     }
 
     public void StartGame() {
