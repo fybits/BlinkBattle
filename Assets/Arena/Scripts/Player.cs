@@ -6,20 +6,25 @@ public class Player : MonoBehaviour
 {
     public int playerNum;
 
-    public int health = 100;
+    public float health = 100;
 
     public Vector2 moveDir;
     public Vector2 viewDir;
     public Vector2 input;
 
-    Vector2 vel;
+    public Vector2 vel;
     public float speed;
+    public float friction = 0.9f;
+    public float defense = 1;
 
     public int weaponId = 0;
     public GameObject weapon;
 
     public int skillId = 0;
-    public GameObject skill;
+    public SkillBase skill;
+
+    public GameObject shield;
+
 
     public ArenaManager arenaManager;
     public bool canMove = true;
@@ -32,6 +37,7 @@ public class Player : MonoBehaviour
         arenaManager = FindObjectOfType<ArenaManager>();
 
         vel = new Vector2();
+        skill = new BlinkSkill(this);
 
         Sprite playerSkin = Resources.Load<Sprite>("Arena/Sprites/Player/Player_" + playerNum.ToString());
         if (playerSkin)
@@ -47,7 +53,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        if (Input.GetButtonDown("ActionP" + playerNum)) {
+            Debug.Log("Action pressed");
+            skill.Cast();
+        }
+
         if (arenaManager.gameEnded == false)
         {
             if (fireSpeedTimer > 0)
@@ -111,12 +121,10 @@ public class Player : MonoBehaviour
             viewDir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
             transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2(viewDir.y, viewDir.x) * Mathf.Rad2Deg);
         }
-
-    
-
+        
         //Debug.Log(viewDir.x.ToString() + " " + viewDir.y.ToString());
 
-        vel *= 0.9f;
+        vel *= friction;
     }
 
     public void TakeWeapon(int weaponId)
