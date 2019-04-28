@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponId: 3
+  price: 40
   bullets: 1
   spread: 0
   accuracy: 0
