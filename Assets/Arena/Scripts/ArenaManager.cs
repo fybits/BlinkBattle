@@ -74,24 +74,24 @@ public class ArenaManager : MonoBehaviour
     private void LoadFight()
     {
         // Terrain
-        float lBound = -15;
-        float tBound = 15;
-        float step = 0.75f;
+        //float lBound = -15;
+        //float tBound = 15;
+        //float step = 0.75f;
 
-        for (float i = lBound; i < tBound; i += step)
-        {
-            for (float j = lBound; j < tBound; j += step)
-            {
-                if (i == lBound || i == tBound - step || j == lBound || j == tBound - step)
-                {
-                    Instantiate(floorItems[1], new Vector3(i, j, 0), Quaternion.identity, floor);
-                }
-                else
-                {
-                    Instantiate(floorItems[0], new Vector3(i, j, 0), Quaternion.identity, floor);
-                }
-            }
-        }
+        //for (float i = lBound; i < tBound; i += step)
+        //{
+        //    for (float j = lBound; j < tBound; j += step)
+        //    {
+        //        if (i == lBound || i == tBound - step || j == lBound || j == tBound - step)
+        //        {
+        //            Instantiate(floorItems[1], new Vector3(i, j, 0), Quaternion.identity, floor);
+        //        }
+        //        else
+        //        {
+        //            Instantiate(floorItems[0], new Vector3(i, j, 0), Quaternion.identity, floor);
+        //        }
+        //    }
+        //}
 
         // Players
         Vector3 pl1SpawnPos = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width * 0.25f, Screen.height * 0.5f, 0));

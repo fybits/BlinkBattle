@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 12855319}
   - component: {fileID: 12855318}
   - component: {fileID: 12855317}
+  - component: {fileID: 12855320}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -154,7 +155,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.19228373, g: 0.22390085, b: 0.2735849, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -200,6 +201,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &12855320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12855316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75d67b38f78bfa444855b666784d5923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pl1: {fileID: 0}
+  pl2: {fileID: 0}
+  initialDistance: 0
+  smoothSpeed: 0.06
+  offset: {x: 0, y: 0, z: 0}
+--- !u!1 &26566968 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8320294008960549147, guid: 142fd508fc277444399902df81d5785d,
+    type: 3}
+  m_PrefabInstance: {fileID: 471625586}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &170930295
 GameObject:
   m_ObjectHideFlags: 0
@@ -9831,7 +9855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  gameManager: {fileID: 0}
+  arenaManager: {fileID: 1113939313}
 --- !u!1 &897546430
 GameObject:
   m_ObjectHideFlags: 0
@@ -9975,7 +9999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  gameManager: {fileID: 0}
+  arenaManager: {fileID: 1113939313}
 --- !u!1 &1077856459
 GameObject:
   m_ObjectHideFlags: 0
@@ -11436,6 +11460,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1113939313 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5795016517079968128}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038c5f5acc2ba324b83d96be3c9a1cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1122766789
 GameObject:
   m_ObjectHideFlags: 0
@@ -14827,7 +14863,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 25
+  m_SortingOrder: 100
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -19120,6 +19156,53 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArenaManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: pl1
+      value: 
+      objectReference: {fileID: 1470786147220551449, guid: 874b543aacc38c34d827b2c7bf76d196,
+        type: 3}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: pl2
+      value: 
+      objectReference: {fileID: 5665516621799305619, guid: 6aed54b863aa4d14293057345b75145a,
+        type: 3}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 12855320}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: pl1ReadyButton
+      value: 
+      objectReference: {fileID: 897546432}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: pl2ReadyButton
+      value: 
+      objectReference: {fileID: 783343170}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: endGameButton
+      value: 
+      objectReference: {fileID: 495734817}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: winText
+      value: 
+      objectReference: {fileID: 26566968}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1208882830}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: floor
+      value: 
+      objectReference: {fileID: 709061195}
     - target: {fileID: 5795016516764016931, guid: ade81cacac8e9d245812383925e292f2,
         type: 3}
       propertyPath: m_LocalPosition.x
