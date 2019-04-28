@@ -21,8 +21,9 @@ public class RocketRaceManager : MonoBehaviour
 
     Rocket player1;
     Rocket player2;
-    Rocket player3;
 
+    float firstScore;
+    float secondScore;
 
     bool started = false;
 
@@ -67,7 +68,7 @@ public class RocketRaceManager : MonoBehaviour
         if (started) {
             if (player1.isDead && player2.isDead) {
                 StartCoroutine("RoundOver");
-                Debug.Log("TIME: " + (timeFromStart - 15));
+                //Debug.Log("TIME: " + (timeFromStart - 15));
                 
             }
             if (Mathf.Round(timeFromStart % 2) == 0) {
@@ -100,25 +101,35 @@ public class RocketRaceManager : MonoBehaviour
         player2.enabled = true;
     }
 
+    public void DeathNotification(int playerID) {
+        if (playerID == 1)
+            firstScore = timeFromStart - 15;
+        else
+            secondScore = timeFromStart - 15;
+    }
+
     IEnumerator Prepare() {
         // Ready
         Debug.Log("Ready.");
-        UIManager.singleton.StartCoroutine("PopUp", new object[] { "READY...", 0.8f });
+        UIManagerInGame.singleton.StartCoroutine("PopUp", new object[] { "READY...", 0.8f });
         yield return new WaitForSeconds(1);
         // Set
         Debug.Log("Set.");
-        UIManager.singleton.StartCoroutine("PopUp", new object[] { "SET...", 0.8f });
+        UIManagerInGame.singleton.StartCoroutine("PopUp", new object[] { "SET...", 0.8f });
         yield return new WaitForSeconds(1);
         // GO!
         Debug.Log("Go!");
-        UIManager.singleton.StartCoroutine("PopUp", new object[] { "GO!", 0.8f });
+        UIManagerInGame.singleton.StartCoroutine("PopUp", new object[] { "GO!", 0.8f });
         yield return new WaitForSeconds(1);
         Go();
     }
 
     IEnumerator RoundOver() {
-        // Ready
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("rocketrace");
+        // Show Table
+        GameController.singleton.AddMoney((int)firstScore, (int)secondScore);
+//        UIManagerInGame.ShowResults(()firstScore, secondScore);
+        yield return new WaitForSeconds(4);
+
+        MiniGamesManager.singleton.EndMiniGame();
     }
 }

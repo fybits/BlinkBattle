@@ -10,9 +10,12 @@ using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
+
+    public string tag;
+
     void Awake()
     {
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("GameManager");
+        GameObject[] objs = GameObject.FindGameObjectsWithTag(tag);
 
         if (objs.Length > 1)
         {
