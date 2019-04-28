@@ -6,13 +6,17 @@ public class Weapon : MonoBehaviour
 {
     public int weaponId;
 
+    public int price;
     public byte bullets;
     public float spread;
     public float accuracy;
-    public int fireSpeed;
+
+    public float fireSpeed;
 
     public GameObject bullet;
     public GameObject player;
+
+    public char type;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +28,7 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public void Fire()
@@ -37,8 +41,11 @@ public class Weapon : MonoBehaviour
         int coef = 1;
         if (angle < 0)
             coef = -1;
-        
-        Vector2 plMovDir = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad) * coef, Mathf.Sin(angle * Mathf.Deg2Rad) * coef);
+
+        float spreadFactor = Random.Range(-spread, spread);
+        Debug.Log(spreadFactor);
+
+        Vector2 plMovDir = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad) * coef + spreadFactor / 10f, Mathf.Sin(angle * Mathf.Deg2Rad) * coef + spreadFactor / 10f);
         newBullet.GetComponent<Bullet>().movDir = plMovDir;
         newBullet.GetComponent<Bullet>().playerId = player.GetComponent<Player>().playerNum;
     }

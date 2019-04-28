@@ -96,5 +96,7 @@ MonoBehaviour:
   bullets: 1
   spread: 1
   accuracy: 1
-  fireSpeed: 1
+  fireSpeed: 0.5
   bullet: {fileID: 7839902319283548959, guid: 51a28ccfb5200cc4e943e6fe3c734d57, type: 3}
+  player: {fileID: 0}
+  type: 83
