@@ -20,8 +20,9 @@ public class MiniGamesManager : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         SceneManager.sceneLoaded += SceneManager_sceneLoaded;
-        for (int i = 0; i < 5; i++) {
-            miniGames.Push(miniGamesPool[Random.Range(0, miniGamesPool.Length)]);
+        for (int i = 0; i < 2; i++) {
+            miniGames.Push(miniGamesPool[i]);
+            //miniGames.Push(miniGamesPool[Random.Range(0, miniGamesPool.Length)]);
         }
         StartCoroutine("NextGame");
     }

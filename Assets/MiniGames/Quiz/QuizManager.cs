@@ -11,6 +11,11 @@ public class QuizManager : MonoBehaviour {
     public TextMeshProUGUI questionText;
     public GameObject answers;
 
+    public TextMeshProUGUI[] variants;
+
+    public TextMeshProUGUI player1Scr;
+    public TextMeshProUGUI player2Scr;
+
     Question current;
 
     bool alloyInput = false;
@@ -19,13 +24,14 @@ public class QuizManager : MonoBehaviour {
     int player1Choice = -1, player2Choice = -1;
 
     private void Start() {
-        for (int i = 0; i < quests.Length; i++) {
+        for (int i = 0; i < 5; i++) {
             questions.Push(new Question(quests[i].question,quests[i].answers,quests[i].correctAnswerId));
         }
-        TextMeshProUGUI[] variants = answers.GetComponentsInChildren<TextMeshProUGUI>();
+        variants = answers.GetComponentsInChildren<TextMeshProUGUI>();
         for (int i = 0; i < 4; i++) {
             variants[i].gameObject.SetActive(false);
         }
+        StartCoroutine(ShowTask());
     }
 
 
@@ -47,6 +53,8 @@ public class QuizManager : MonoBehaviour {
 
 
             if (player1Choice != -1 && player2Choice != -1) {
+                variants[player1Choice].text = "[1] "+ variants[player1Choice].text;
+                variants[player2Choice].text += " [2]";
                 alloyInput = false;
                 StartCoroutine(RevealRight());
             }
@@ -54,20 +62,29 @@ public class QuizManager : MonoBehaviour {
     }
 
     IEnumerator ShowTask() {
-        current = questions.Pop();
-        questionText.text = current.question;
-        TextMeshProUGUI[] variants = answers.GetComponentsInChildren<TextMeshProUGUI>();
-        for (int i = 0; i < 4; i++) {
-            variants[i].gameObject.SetActive(true);
-            variants[i].text = current.answers[i];
-            yield return new WaitForSeconds(0.1f);
+        if (questions.Count > 0) {
+            current = questions.Pop();
+            questionText.text = current.question;
+            Debug.Log(variants.Length);
+            string[] letters = { "A", "B", "X", "Y" };
+            for (int i = 0; i < 4; i++) {
+                yield return new WaitForSeconds(0.1f);
+                variants[i].gameObject.SetActive(true);
+                variants[i].text = letters[i]+" "+current.answers[i];
+            }
+            alloyInput = true;
+        } else {
+            if (player1Score > player2Score) {
+                player1Score += 5;
+            } else if (player2Score > player1Score)
+                player2Score += 5;
+            GameController.singleton.AddMoney(player1Score, player1Score);
+            MiniGamesManager.singleton.EndMiniGame();
         }
-        alloyInput = true;
     }
 
     IEnumerator RevealRight() {
         yield return new WaitForSeconds(2);
-        TextMeshProUGUI[] variants = answers.GetComponentsInChildren<TextMeshProUGUI>();
         for (int i = 0; i < 4; i++) {
             if (i == current.correctAnswerId)
                 continue;
@@ -78,7 +95,13 @@ public class QuizManager : MonoBehaviour {
             player1Score++;
         if (player2Choice == current.correctAnswerId)
             player2Score++;
+        player1Choice = -1;
+        player2Choice = -1;
+        player1Scr.text = "Player1\n" + player1Score;
+        player2Scr.text = "Player2\n" + player2Score;
         yield return new WaitForSeconds(2);
+
+        variants[current.correctAnswerId].transform.parent.GetComponent<Image>().color = new Color(1, 1, 1);
         variants[current.correctAnswerId].gameObject.SetActive(false);
         yield return new WaitForSeconds(1);
         StartCoroutine(ShowTask());

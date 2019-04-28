@@ -5,15 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/__DELETED_GUID_Trash/8c889f9ed1e536943ad752137590e525
+  - enabled: 1
+    path: Assets/MainMenu/MainMenu.unity
     guid: 8c889f9ed1e536943ad752137590e525
   - enabled: 1
     path: Assets/MiniGames/MiniGames.unity
     guid: f6a64b5b2cc5b344d8d9943eb174cb5b
   - enabled: 1
-    path: Assets/MiniGames/RocketRace/rocketrace.unity
+    path: Assets/MiniGames/RocketRace/RocketRace.unity
     guid: b42f2bc4f255b5f40b61c51ae03fef75
+  - enabled: 1
+    path: Assets/MiniGames/Quiz/Quiz.unity
+    guid: 323d9f4f72813594cb2254f026374c73
   - enabled: 1
     path: Assets/Arena/ArenaScene.unity
     guid: 83cc7c3945ce3a645a1bd2c722bddd64
