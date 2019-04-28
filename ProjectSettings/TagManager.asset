@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: [pl2Button, pl1Button, GameManager, Player1, Player2]
+  tags:
+  - pl2Button
+  - pl1Button
+  - GameManager
+  - Player1
+  - Player2
+  - ArenaManager
   layers:
   - Default
   - TransparentFX
