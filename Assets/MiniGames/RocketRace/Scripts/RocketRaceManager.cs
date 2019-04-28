@@ -67,6 +67,7 @@ public class RocketRaceManager : MonoBehaviour
     {
         if (started) {
             if (player1.isDead && player2.isDead) {
+                started = false;
                 StartCoroutine("RoundOver");
                 //Debug.Log("TIME: " + (timeFromStart - 15));
                 
@@ -126,13 +127,13 @@ public class RocketRaceManager : MonoBehaviour
 
     IEnumerator RoundOver() {
         // Show Table
-        GameController.singleton.AddMoney(firstScore, secondScore);
         int firstExtra = 0, secondExtra = 0;
         if (firstScore > secondScore) {
             firstExtra = 5;
         } else if (firstScore < secondScore)
             secondExtra = 5;
         UIManagerInGame.singleton.ShowResults(firstScore, firstExtra, secondScore, secondExtra);
+        GameController.singleton.AddMoney(firstScore+firstExtra, secondScore+secondExtra);
         yield return new WaitForSeconds(4);
 
         MiniGamesManager.singleton.EndMiniGame();

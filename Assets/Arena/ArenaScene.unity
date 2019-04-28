@@ -550,7 +550,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1113939313}
         m_MethodName: Retry
         m_Mode: 1
         m_Arguments:
@@ -19156,53 +19156,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArenaManager
       objectReference: {fileID: 0}
-    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
-        type: 3}
-      propertyPath: pl1
-      value: 
-      objectReference: {fileID: 1470786147220551449, guid: 874b543aacc38c34d827b2c7bf76d196,
-        type: 3}
-    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
-        type: 3}
-      propertyPath: pl2
-      value: 
-      objectReference: {fileID: 5665516621799305619, guid: 6aed54b863aa4d14293057345b75145a,
-        type: 3}
-    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
-        type: 3}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 12855320}
-    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
-        type: 3}
-      propertyPath: pl1ReadyButton
-      value: 
-      objectReference: {fileID: 897546432}
-    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
-        type: 3}
-      propertyPath: pl2ReadyButton
-      value: 
-      objectReference: {fileID: 783343170}
-    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
-        type: 3}
-      propertyPath: endGameButton
-      value: 
-      objectReference: {fileID: 495734817}
-    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
-        type: 3}
-      propertyPath: winText
-      value: 
-      objectReference: {fileID: 26566968}
-    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
-        type: 3}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 1208882830}
-    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
-        type: 3}
-      propertyPath: floor
-      value: 
-      objectReference: {fileID: 709061195}
     - target: {fileID: 5795016516764016931, guid: ade81cacac8e9d245812383925e292f2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19258,5 +19211,75 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: weapons.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: pl1
+      value: 
+      objectReference: {fileID: 1470786147220551449, guid: 874b543aacc38c34d827b2c7bf76d196,
+        type: 3}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: pl2
+      value: 
+      objectReference: {fileID: 5665516621799305619, guid: 6aed54b863aa4d14293057345b75145a,
+        type: 3}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 12855320}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: pl1ReadyButton
+      value: 
+      objectReference: {fileID: 897546432}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: pl2ReadyButton
+      value: 
+      objectReference: {fileID: 783343170}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: endGameButton
+      value: 
+      objectReference: {fileID: 495734817}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: winText
+      value: 
+      objectReference: {fileID: 26566968}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1208882830}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: floor
+      value: 
+      objectReference: {fileID: 709061195}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: weapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 596951703465405259, guid: c46b8fd5bc86e36478a492f9d29b2ff1,
+        type: 3}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: weapons.Array.data[2]
+      value: 
+      objectReference: {fileID: 1920235489020767098, guid: 4c974c328d2bfe74fa53501af2742f93,
+        type: 3}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: weapons.Array.data[3]
+      value: 
+      objectReference: {fileID: 1920235489020767098, guid: 320c4168d06669949a83dfa2555cd1ab,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ade81cacac8e9d245812383925e292f2, type: 3}
