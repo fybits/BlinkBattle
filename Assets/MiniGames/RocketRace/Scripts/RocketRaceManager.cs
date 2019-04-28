@@ -22,8 +22,8 @@ public class RocketRaceManager : MonoBehaviour
     Rocket player1;
     Rocket player2;
 
-    float firstScore;
-    float secondScore;
+    public float firstScore;
+    public float secondScore;
 
     bool started = false;
 
