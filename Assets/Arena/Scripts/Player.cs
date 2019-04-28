@@ -17,14 +17,20 @@ public class Player : MonoBehaviour
 
     public int weaponId = 0;
     public GameObject weapon;
-    public ArenaManager arenaManager;
-    public GameManager gameManager;
 
+    public int skillId = 0;
+    public GameManager skill;
+
+    public ArenaManager arenaManager;
+    public bool canMove = true;
+
+    public float fireSpeed;
+    public float fireSpeedTimer;
     // Start is called before the first frame update
     void Start()
     {
         arenaManager = FindObjectOfType<ArenaManager>();
-        gameManager = FindObjectOfType<GameManager>();
+
         vel = new Vector2();
 
         Sprite playerSkin = Resources.Load<Sprite>("Arena/Sprites/Player/Player_" + playerNum.ToString());
@@ -33,41 +39,75 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sprite = playerSkin;
         }
 
-        TakeWeapon(weaponId);
+        TakeWeapon(3);
+        fireSpeed = weapon.GetComponent<Weapon>().fireSpeed;
+        fireSpeedTimer = fireSpeed;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (gameManager.gameEnded == false)
+        
+        if (arenaManager.gameEnded == false)
         {
-            if (Input.GetAxis("FireP" + playerNum) > 0)
+            if (fireSpeedTimer > 0)
             {
-                weapon.GetComponent<Weapon>().Fire();
+                fireSpeedTimer -= Time.fixedDeltaTime;
+            }
+
+            if (fireSpeedTimer <= 0)
+            {
+                if (weapon.GetComponent<Weapon>().type == 'S')
+                {
+                    if (Input.GetButtonDown("FireP" + playerNum))
+                    {
+                        weapon.GetComponent<Weapon>().Fire();
+                        fireSpeedTimer = fireSpeed;
+                    }
+                }
+                else if (weapon.GetComponent<Weapon>().type == 'A')
+                {
+                    if (Input.GetButton("FireP" + playerNum))
+                    {
+                        weapon.GetComponent<Weapon>().Fire();
+                        fireSpeedTimer = fireSpeed;
+                    }
+                }
+                else
+                {
+                    if (Input.GetButtonDown("FireP" + playerNum))
+                    {
+                        weapon.GetComponent<Weapon>().Fire();
+                        fireSpeedTimer = fireSpeed;
+                    }
+                }
             }
 
             if (health <= 0)
             {
-                if (gameManager.gameEnded == false)
+                if (arenaManager.gameEnded == false)
                 {
-                    gameManager.EndGame(playerNum);
-                    gameManager.gameEnded = true;
+                    arenaManager.EndGame(playerNum);
+                    arenaManager.gameEnded = true;
+                    gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Arena/Sprites/death");
+                    gameObject.GetComponent<SpriteRenderer>().sortingOrder = 25;
+                    canMove = false;
+                    Destroy(GetComponent<CircleCollider2D>());
                 }
-            }
-
-
-            Move();
+            }      
         }
+        if (canMove)
+            Move();
     }
 
     public void Move()
     {
         input = new Vector2(Input.GetAxisRaw("HorizontalP" + playerNum),
                            Input.GetAxisRaw("VerticalP" + playerNum));
-
+        
         if (input.magnitude >= 0.2f)
         {
-            vel += input * speed * Time.deltaTime;
+            vel += input.normalized * speed * Time.fixedDeltaTime;
         }
 
         transform.position += new Vector3(vel.x, vel.y, 0);
