@@ -35,9 +35,17 @@ public class Player : MonoBehaviour
     void Start()
     {
         arenaManager = FindObjectOfType<ArenaManager>();
+        if (playerNum == 1)
+        {
+            GetComponent<Player>().skill = new ShieldSkill(GetComponent<Player>());
+        }
+        else
+        {
+            GetComponent<Player>().skill = new ShieldSkill(GetComponent<Player>());
+        }
 
         vel = new Vector2();
-        skill = new BlinkSkill(this);
+        //skill = new BlinkSkill(this);
 
         Sprite playerSkin = Resources.Load<Sprite>("Arena/Sprites/Player/Player_" + playerNum.ToString());
         if (playerSkin)
@@ -55,7 +63,10 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("ActionP" + playerNum)) {
             Debug.Log("Action pressed");
-            skill.Cast();
+            if (skillId != 0)
+            {
+                skill.Cast();
+            }
         }
 
         if (arenaManager.gameEnded == false)

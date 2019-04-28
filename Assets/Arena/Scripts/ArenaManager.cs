@@ -119,6 +119,29 @@ public class ArenaManager : MonoBehaviour
         GameObject player1 = Instantiate(pl1, pl1SpawnPos, Quaternion.identity) as GameObject;
         GameObject player2 = Instantiate(pl2, pl2SpawnPos, Quaternion.identity) as GameObject;
 
+        //player1.GetComponent<Player>().TakeWeapon(pl1weaponId);
+        //player2.GetComponent<Player>().TakeWeapon(pl2weaponId);
+
+        // Give Skills
+        //if (pl1skillId == 1)
+        //{
+        //    player1.GetComponent<Player>().skill = new ShieldSkill(player1.GetComponent<Player>());
+        //} 
+        //else if (pl1skillId == 2)
+        //{
+        //    player1.GetComponent<Player>().skill = new BlinkSkill(player1.GetComponent<Player>());
+        //}
+
+        //if (pl2skillId == 1)
+        //{
+        //    player2.GetComponent<Player>().skill = new ShieldSkill(player2.GetComponent<Player>());
+        //}
+        //else if (pl2skillId == 2)
+        //{
+        //    player2.GetComponent<Player>().skill = new BlinkSkill(player2.GetComponent<Player>());
+        //}
+
+
         cam.pl1 = player1;
         cam.pl2 = player2;
         cam.initialDistance = Vector3.Distance(player1.transform.position, player2.transform.position);
