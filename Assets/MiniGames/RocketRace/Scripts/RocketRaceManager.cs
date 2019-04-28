@@ -22,8 +22,8 @@ public class RocketRaceManager : MonoBehaviour
     Rocket player1;
     Rocket player2;
 
-    float firstScore;
-    float secondScore;
+    int firstScore;
+    int secondScore;
 
     bool started = false;
 
@@ -103,9 +103,9 @@ public class RocketRaceManager : MonoBehaviour
 
     public void DeathNotification(int playerID) {
         if (playerID == 1)
-            firstScore = timeFromStart - 15;
+            firstScore = (int)timeFromStart - 15;
         else
-            secondScore = timeFromStart - 15;
+            secondScore = (int)timeFromStart - 15;
     }
 
     IEnumerator Prepare() {
@@ -126,8 +126,13 @@ public class RocketRaceManager : MonoBehaviour
 
     IEnumerator RoundOver() {
         // Show Table
-        GameController.singleton.AddMoney((int)firstScore, (int)secondScore);
-//        UIManagerInGame.ShowResults(()firstScore, secondScore);
+        GameController.singleton.AddMoney(firstScore, secondScore);
+        int firstExtra = 0, secondExtra = 0;
+        if (firstScore > secondScore) {
+            firstExtra = 5;
+        } else if (firstScore < secondScore)
+            secondExtra = 5;
+        UIManagerInGame.singleton.ShowResults(firstScore, firstExtra, secondScore, secondExtra);
         yield return new WaitForSeconds(4);
 
         MiniGamesManager.singleton.EndMiniGame();

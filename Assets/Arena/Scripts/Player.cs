@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     public GameObject weapon;
 
     public int skillId = 0;
-    public GameManager skill;
+    public GameObject skill;
 
     public ArenaManager arenaManager;
     public bool canMove = true;
