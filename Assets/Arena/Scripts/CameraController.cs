@@ -31,7 +31,9 @@ public class CameraController : MonoBehaviour
             float currentDistanceY = Mathf.Abs(pl1.transform.position.y - pl2.transform.position.y);
             if ((currentDistanceX * 0.8f + currentDistanceY * 2.3f) / 2 > initialDistance * 0.75f)
             {
-                GetComponent<Camera>().orthographicSize = 5 * ((currentDistanceX * 0.8f + currentDistanceY * 2.3f) / 2) / (initialDistance * 0.75f);
+                float desiredSize = 5 * ((currentDistanceX * 0.8f + currentDistanceY * 2.3f) / 2) / (initialDistance * 0.75f);
+                float smoothedSize = Mathf.Lerp(GetComponent<Camera>().orthographicSize, desiredSize, smoothSpeed);
+                GetComponent<Camera>().orthographicSize = smoothedSize;
             }
         }
     }
