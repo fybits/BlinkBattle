@@ -20,7 +20,7 @@ public class QuizManager : MonoBehaviour {
 
     private void Start() {
         for (int i = 0; i < quests.Length; i++) {
-            questions.Push(quests[i]);
+            questions.Push(new Question(quests[i].question,quests[i].answers,quests[i].correctAnswerId));
         }
         TextMeshProUGUI[] variants = answers.GetComponentsInChildren<TextMeshProUGUI>();
         for (int i = 0; i < 4; i++) {
@@ -32,7 +32,18 @@ public class QuizManager : MonoBehaviour {
     private void Update() {
         if (alloyInput) {
             // Input
+            // ABXY
 
+            if (Input.GetButtonDown("AP1")) player1Choice = 0;
+            if (Input.GetButtonDown("BP1")) player1Choice = 1;
+            if (Input.GetButtonDown("XP1")) player1Choice = 2;
+            if (Input.GetButtonDown("YP1")) player1Choice = 3;
+
+
+            if (Input.GetButtonDown("AP2")) player2Choice = 0;
+            if (Input.GetButtonDown("BP2")) player2Choice = 1;
+            if (Input.GetButtonDown("XP2")) player2Choice = 2;
+            if (Input.GetButtonDown("YP2")) player2Choice = 3;
 
 
             if (player1Choice != -1 && player2Choice != -1) {
