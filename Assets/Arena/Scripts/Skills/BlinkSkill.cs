@@ -8,11 +8,13 @@ public class BlinkSkill : SkillBase
     float timer = 0.2f;
     bool isOnCoolDown = false;
 
-    public BlinkSkill (Player player) {
+    public BlinkSkill (Player player, float cooldown) {
         this.player = player;
+        this.cooldown = cooldown;
     }
 
-    public void Cast() {
+
+    public override void Cast() {
         if (!isOnCoolDown) {
             isOnCoolDown = true;
             player.StartCoroutine(Skill());
@@ -41,7 +43,7 @@ public class BlinkSkill : SkillBase
         }
         player.vel = tempVel;
         player.GetComponent<Collider2D>().enabled = true;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(cooldown);
         timer = 0.2f;
         isOnCoolDown = false;
     }

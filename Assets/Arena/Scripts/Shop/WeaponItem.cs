@@ -17,10 +17,10 @@ public class WeaponItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        weaponId = Random.Range(1, arenaManager.weapons.Length + 1);
-        price = arenaManager.weapons[weaponId - 1].GetComponent<Weapon>().price;
+        weaponId = Random.Range(0, arenaManager.weapons.Length);
+        price = arenaManager.weapons[weaponId].GetComponent<Weapon>().price;
 
-        Sprite sprite = arenaManager.weapons[weaponId - 1].GetComponent<SpriteRenderer>().sprite;
+        Sprite sprite = arenaManager.weapons[weaponId].GetComponent<SpriteRenderer>().sprite;
         TextMeshProUGUI text = GetComponentInChildren<TextMeshProUGUI>();
         text.text = price.ToString();
         image.sprite = sprite;

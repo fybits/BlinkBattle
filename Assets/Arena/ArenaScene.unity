@@ -804,7 +804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerId: 1
   arenaManager: {fileID: 1113939313}
-  skillId: 1
+  skillId: 0
   price: 50
   isBought: 0
 --- !u!114 &322116560 stripped
@@ -849,6 +849,7 @@ RectTransform:
   m_Children:
   - {fileID: 1579523002}
   - {fileID: 1649916641}
+  - {fileID: 1244158071}
   m_Father: {fileID: 1208882830}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2198,7 +2199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerId: 1
   arenaManager: {fileID: 1113939313}
-  skillId: 2
+  skillId: 1
   price: 50
   isBought: 0
 --- !u!114 &691975965 stripped
@@ -10483,36 +10484,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &709061194
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 709061195}
-  m_Layer: 0
-  m_Name: Floor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &709061195
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 709061194}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &720396722
 GameObject:
   m_ObjectHideFlags: 0
@@ -10647,11 +10618,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -10725,7 +10696,7 @@ Transform:
   - {fileID: 1503410637}
   - {fileID: 769372165}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &769372164
 GameObject:
@@ -11156,7 +11127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerId: 2
   arenaManager: {fileID: 1113939313}
-  skillId: 1
+  skillId: 0
   price: 50
   isBought: 0
 --- !u!114 &838867536 stripped
@@ -16403,7 +16374,6 @@ RectTransform:
   - {fileID: 361035889}
   - {fileID: 71791}
   - {fileID: 2121938803}
-  - {fileID: 1244158071}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16563,7 +16533,7 @@ Transform:
   m_LocalScale: {x: 184.9, y: 145.03, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1242386981
 GameObject:
@@ -16662,18 +16632,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244158070}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1166682314}
   - {fileID: 1019278804}
-  m_Father: {fileID: 1208882830}
-  m_RootOrder: 6
+  m_Father: {fileID: 361035889}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 30}
+  m_AnchoredPosition: {x: 0, y: -152.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1276120869
@@ -18409,7 +18379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerId: 2
   arenaManager: {fileID: 1113939313}
-  skillId: 2
+  skillId: 1
   price: 50
   isBought: 0
 --- !u!114 &1658259662 stripped
@@ -23142,12 +23112,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 838867534}
+      objectReference: {fileID: 1658259660}
     - target: {fileID: 22890700765447514, guid: 6a90089b4c937f04c884de2e8323f866,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: BuySkill
       objectReference: {fileID: 0}
+    - target: {fileID: 22890700765447514, guid: 6a90089b4c937f04c884de2e8323f866,
+        type: 3}
+      propertyPath: eventSystem
+      value: 
+      objectReference: {fileID: 1616668374}
     m_RemovedComponents:
     - {fileID: 3534845709148562727, guid: 6a90089b4c937f04c884de2e8323f866, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6a90089b4c937f04c884de2e8323f866, type: 3}
@@ -24513,12 +24488,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 322116558}
+      objectReference: {fileID: 691975963}
     - target: {fileID: 22890700765447514, guid: 6a90089b4c937f04c884de2e8323f866,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: BuySkill
       objectReference: {fileID: 0}
+    - target: {fileID: 22890700765447514, guid: 6a90089b4c937f04c884de2e8323f866,
+        type: 3}
+      propertyPath: eventSystem
+      value: 
+      objectReference: {fileID: 170930298}
     m_RemovedComponents:
     - {fileID: 3534845709148562727, guid: 6a90089b4c937f04c884de2e8323f866, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6a90089b4c937f04c884de2e8323f866, type: 3}
@@ -24864,7 +24844,7 @@ PrefabInstance:
     - target: {fileID: 1325845578450795071, guid: c3bb4daca554eb248b4332b6d577ed2e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1325845578450795071, guid: c3bb4daca554eb248b4332b6d577ed2e,
         type: 3}
@@ -25220,7 +25200,7 @@ PrefabInstance:
         type: 3}
       propertyPath: floor
       value: 
-      objectReference: {fileID: 709061195}
+      objectReference: {fileID: 0}
     - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
         type: 3}
       propertyPath: weapons.Array.data[1]
@@ -25282,6 +25262,46 @@ PrefabInstance:
       propertyPath: pl2ScoreText
       value: 
       objectReference: {fileID: 1117058876}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: pl1skillId
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: pl2skillId
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: skills.Array.data[0].cooldown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: skills.Array.data[0].name
+      value: Shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: skills.Array.data[0].price
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: skills.Array.data[1].name
+      value: Blink
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: skills.Array.data[1].price
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795016516764016930, guid: ade81cacac8e9d245812383925e292f2,
+        type: 3}
+      propertyPath: skills.Array.data[1].cooldown
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5795016516764016931, guid: ade81cacac8e9d245812383925e292f2,
         type: 3}
       propertyPath: m_LocalPosition.x

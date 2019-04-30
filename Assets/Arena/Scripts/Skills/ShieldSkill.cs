@@ -8,12 +8,13 @@ public class ShieldSkill : SkillBase
     GameObject shield;
     bool isOnCoolDown = false;
 
-    public ShieldSkill (Player player) {
+    public ShieldSkill (Player player, float cooldown) {
         this.player = player;
+        this.cooldown = cooldown;
         shield = GameObject.Instantiate(player.shield, player.transform);
     }
 
-    public void Cast() {
+    public override void Cast() {
         if (!isOnCoolDown) {
             isOnCoolDown = true;
             player.StartCoroutine(Skill());
@@ -26,7 +27,7 @@ public class ShieldSkill : SkillBase
         yield return new WaitForSeconds(2);
         player.defense = 1f;
         shield.SetActive(false);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(cooldown);
         isOnCoolDown = false;
     }
 }

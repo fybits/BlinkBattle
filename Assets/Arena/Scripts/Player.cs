@@ -17,10 +17,10 @@ public class Player : MonoBehaviour
     public float friction = 0.9f;
     public float defense = 1;
 
-    public int weaponId = 0;
+    public int weaponId = -1;
     public GameObject weapon;
 
-    public int skillId = 0;
+    public int skillId = -1;
     public SkillBase skill;
 
     public GameObject shield;
@@ -32,18 +32,22 @@ public class Player : MonoBehaviour
 
     public float fireSpeed;
     public float fireSpeedTimer;
+
+    private void Awake() {
+        arenaManager = GameObject.FindGameObjectWithTag("ArenaManager").GetComponent<ArenaManager>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        arenaManager = FindObjectOfType<ArenaManager>();
-        if (playerNum == 1)
-        {
-            GetComponent<Player>().skill = new ShieldSkill(GetComponent<Player>());
-        }
-        else
-        {
-            GetComponent<Player>().skill = new BlinkSkill(GetComponent<Player>());
-        }
+        //if (playerNum == 1)
+        //{
+        //    GetComponent<Player>().skill = new ShieldSkill(GetComponent<Player>());
+        //}
+        //else
+        //{
+        //    GetComponent<Player>().skill = new BlinkSkill(GetComponent<Player>());
+        //}
 
         vel = new Vector2();
         //skill = new BlinkSkill(this);
@@ -54,43 +58,37 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sprite = playerSkin;
         }
 
-        if (playerNum == 1)
-        {
-            TakeWeapon(1);
-        }
-        else if (playerNum == 2)
-        {
-            TakeWeapon(1);
-        }
-        fireSpeed = weapon.GetComponent<Weapon>().fireSpeed;
-        fireSpeedTimer = fireSpeed;
+        //if (playerNum == 1)
+        //{
+        //    TakeWeapon(1);
+        //}
+        //else if (playerNum == 2)
+        //{
+        //    TakeWeapon(1);
+        //}
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         if (Input.GetButtonDown("ActionP" + playerNum)) {
-            Debug.Log("Action pressed");
-            skill.Cast();
-            
+            if (skillId >= 0)
+                skill.Cast();
+        }
+        if (fireSpeedTimer > 0) {
+            fireSpeedTimer -= Time.fixedDeltaTime;
         }
 
+        if (fireSpeedTimer <= 0) {
+
+            if (Input.GetButton("FireP" + playerNum)) {
+                weapon.GetComponent<Weapon>().Fire();
+                fireSpeedTimer = fireSpeed;
+            }
+        }
         if (arenaManager.gameEnded == false)
         {
-            if (fireSpeedTimer > 0)
-            {
-                fireSpeedTimer -= Time.fixedDeltaTime;
-            }
-
-            if (fireSpeedTimer <= 0)
-            {
-                
-                if (Input.GetButton("FireP" + playerNum))
-                {
-                    weapon.GetComponent<Weapon>().Fire();
-                    fireSpeedTimer = fireSpeed;
-                }
-            }
+            
 
             if (health <= 0)
             {
@@ -157,17 +155,22 @@ public class Player : MonoBehaviour
 
     public void TakeWeapon(int weaponId)
     {
+        ArenaManager a = arenaManager;
+        Debug.Log(arenaManager.weapons.Length);
         GameObject[] weaponList = arenaManager.weapons;
         GameObject weaponToSpawn;
-        if (weaponId > 0 && weaponId <= weaponList.Length)
+        if (weaponId >= 0 && weaponId < weaponList.Length)
         {
-            weaponToSpawn = weaponList[weaponId - 1];
+            weaponToSpawn = weaponList[weaponId];
         }
         else
         {
             weaponToSpawn = weaponList[0];
         }
         weapon = Instantiate(weaponToSpawn, new Vector3(transform.position.x + 0.25f, transform.position.y, 0), transform.rotation, transform) as GameObject;
+        
+        fireSpeed = weapon.GetComponent<Weapon>().fireSpeed;
+        fireSpeedTimer = fireSpeed;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

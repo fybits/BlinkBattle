@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface SkillBase
+public abstract class SkillBase
 {
-    void Cast();
+    public float cooldown;
+
+    public abstract void Cast();
 }

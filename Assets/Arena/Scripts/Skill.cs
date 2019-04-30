@@ -6,20 +6,4 @@ public class Skill : MonoBehaviour
 {
     public float cooldown;
     public float price;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void Effect()
-    {
-
-    }
 }

@@ -16,6 +16,7 @@ public class SkillItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         TextMeshProUGUI text = GetComponentInChildren<TextMeshProUGUI>();
         text.text = price.ToString();
     }
@@ -31,7 +32,7 @@ public class SkillItem : MonoBehaviour
     {
         if (!isBought)
         {
-            if (playerId == 1 && arenaManager.pl1skillId == 0)
+            if (playerId == 1 && arenaManager.pl1skillId == -1)
             {
                 if (arenaManager.pl1Score >= price)
                 {
@@ -42,7 +43,7 @@ public class SkillItem : MonoBehaviour
                     isBought = true;
                 }
             }
-            else if (playerId == 2 && arenaManager.pl2skillId == 0)
+            else if (playerId == 2 && arenaManager.pl2skillId == -1)
             {
                 if (arenaManager.pl2Score >= price)
                 {

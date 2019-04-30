@@ -10,7 +10,6 @@ using UnityEngine.EventSystems;
 public class ArenaManager : MonoBehaviour
 {
     public GameObject[] weapons;
-    public GameObject[] skills;
 
     public GameObject pl1;
     public GameObject pl2;
@@ -22,12 +21,14 @@ public class ArenaManager : MonoBehaviour
 
     // Player items
     public int pl1weaponId = 0;
-    public int pl1skillId = 0;
+    public int pl1skillId = -1;
     public int pl2weaponId = 0;
-    public int pl2skillId = 0;
+    public int pl2skillId = -1;
 
     public GameObject plShop;
+    [HideInInspector]
     public ReadyButton pl1ReadyButton;
+    [HideInInspector]
     public ReadyButton pl2ReadyButton;
     public Button endGameButton;
 
@@ -40,8 +41,7 @@ public class ArenaManager : MonoBehaviour
     public bool gameEnded = false;
     public GameObject winText;
     public Transform canvas;
-
-    public Transform floor;
+    
     public GameObject[] floorItems;
 
     // Start is called before the first frame update
@@ -75,15 +75,14 @@ public class ArenaManager : MonoBehaviour
             else
             {
                 BlackBackground.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0f);
-                LoadFight();
-                arenaLoaded = true;
+                arenaLoaded = LoadFight();
             }
         }
     }
 
   
 
-    private void LoadFight()
+    private bool LoadFight()
     {
         // Terrain
         //float lBound = -15;
@@ -107,44 +106,43 @@ public class ArenaManager : MonoBehaviour
 
         // Players
 
-        Vector3 pl1SpawnPos = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width * 0.25f, Screen.height * 0.5f, 0));
-        Vector3 pl2SpawnPos = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width * 0.75f, Screen.height * 0.5f, 0));
+
+        Vector3 pl1SpawnPos = Camera.main.ViewportToWorldPoint(new Vector3(0.25f, 0.5f, 0));
+        Vector3 pl2SpawnPos = Camera.main.ViewportToWorldPoint(new Vector3(0.75f, 0.5f, 0));
 
         pl1SpawnPos.z += 10;
         pl2SpawnPos.z += 10;
 
-        FightSign.SetActive(true);
+        if (FightSign)
+            FightSign.SetActive(true);
         Destroy(FightSign, 2f);
 
-        GameObject player1 = Instantiate(pl1, pl1SpawnPos, Quaternion.identity) as GameObject;
-        GameObject player2 = Instantiate(pl2, pl2SpawnPos, Quaternion.identity) as GameObject;
+        Player player1 = Instantiate(pl1, pl1SpawnPos, Quaternion.identity).GetComponent<Player>();
+        Player player2 = Instantiate(pl2, pl2SpawnPos, Quaternion.identity).GetComponent<Player>();
 
-        //player1.GetComponent<Player>().TakeWeapon(pl1weaponId);
-        //player2.GetComponent<Player>().TakeWeapon(pl2weaponId);
+        player1.TakeWeapon(pl1weaponId);
+        player2.TakeWeapon(pl2weaponId);
 
         // Give Skills
-        //if (pl1skillId == 1)
-        //{
-        //    player1.GetComponent<Player>().skill = new ShieldSkill(player1.GetComponent<Player>());
-        //} 
-        //else if (pl1skillId == 2)
-        //{
-        //    player1.GetComponent<Player>().skill = new BlinkSkill(player1.GetComponent<Player>());
-        //}
+        if (pl1skillId == 0) {
+            player1.skill = new ShieldSkill(player1, 5);
+        } else if (pl1skillId == 1) {
+            player1.skill = new BlinkSkill(player1, 5);
+        }
 
-        //if (pl2skillId == 1)
-        //{
-        //    player2.GetComponent<Player>().skill = new ShieldSkill(player2.GetComponent<Player>());
-        //}
-        //else if (pl2skillId == 2)
-        //{
-        //    player2.GetComponent<Player>().skill = new BlinkSkill(player2.GetComponent<Player>());
-        //}
+        if (pl2skillId == 0) {
+            player2.skill = new ShieldSkill(player2, 5);
+        } else if (pl2skillId == 1) {
+            player2.skill = new BlinkSkill(player2, 5);
+        }
 
+        player1.skillId = pl1skillId;
+        player2.skillId = pl2skillId;
 
-        cam.pl1 = player1;
-        cam.pl2 = player2;
+        cam.pl1 = player1.gameObject;
+        cam.pl2 = player2.gameObject;
         cam.initialDistance = Vector3.Distance(player1.transform.position, player2.transform.position);
+        return true;
     }
 
     public void EndGame(int playerNum)
