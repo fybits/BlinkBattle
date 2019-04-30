@@ -56,11 +56,11 @@ public class Player : MonoBehaviour
 
         if (playerNum == 1)
         {
-            TakeWeapon(4);
+            TakeWeapon(1);
         }
         else if (playerNum == 2)
         {
-            TakeWeapon(2);
+            TakeWeapon(1);
         }
         fireSpeed = weapon.GetComponent<Weapon>().fireSpeed;
         fireSpeedTimer = fireSpeed;
@@ -71,10 +71,8 @@ public class Player : MonoBehaviour
     {
         if (Input.GetButtonDown("ActionP" + playerNum)) {
             Debug.Log("Action pressed");
-            if (skillId != 0)
-            {
-                skill.Cast();
-            }
+            skill.Cast();
+            
         }
 
         if (arenaManager.gameEnded == false)

@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 3534845709148562723}
   - component: {fileID: 3534845709148562720}
   - component: {fileID: 3534845709148562721}
-  - component: {fileID: 3534845709148562722}
+  - component: {fileID: 22890700765447514}
   - component: {fileID: 3534845709148562727}
+  - component: {fileID: 1498429362270524328}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -77,7 +78,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &3534845709148562722
+--- !u!114 &22890700765447514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,7 +87,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3534845709148562732}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe8c43fb6700163439b1051cc81c55cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -119,6 +120,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  eventSystem: {fileID: 0}
 --- !u!114 &3534845709148562727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,13 +133,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69739c9a45972c444a9734140ec8273a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 0}
-  text: {fileID: 0}
   playerId: 0
-  weaponId: 0
-  price: 0
-  sprite: {fileID: 0}
+  image: {fileID: 0}
   arenaManager: {fileID: 0}
+  isBought: 0
+--- !u!114 &1498429362270524328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3534845709148562732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b63f5d1e5b83b48b1641f3dae87f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 0}
 --- !u!1 &3534845709363357304
 GameObject:
   m_ObjectHideFlags: 0

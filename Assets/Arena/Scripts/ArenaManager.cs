@@ -4,7 +4,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using System;
+using UnityEngine.EventSystems;
 
 public class ArenaManager : MonoBehaviour
 {
@@ -26,8 +27,8 @@ public class ArenaManager : MonoBehaviour
     public int pl2skillId = 0;
 
     public GameObject plShop;
-    public Button pl1ReadyButton;
-    public Button pl2ReadyButton;
+    public ReadyButton pl1ReadyButton;
+    public ReadyButton pl2ReadyButton;
     public Button endGameButton;
 
     public int pl1Score;
@@ -48,8 +49,9 @@ public class ArenaManager : MonoBehaviour
     {
         if (GameController.singleton)
         {
-            pl1Score = GameController.singleton.GetMoney().Item1;
-            pl2Score = GameController.singleton.GetMoney().Item2;
+            Tuple<int,int> score = GameController.singleton.GetMoney();
+            pl1Score = score.Item1;
+            pl2Score = score.Item2;
         }
         else
         {
@@ -62,15 +64,13 @@ public class ArenaManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
-
-        if (arenaLoaded == false && pl1ReadyButton.GetComponent<ReadyButton>().state == true
-            && pl2ReadyButton.GetComponent<ReadyButton>().state == true)
+    {
+        if (arenaLoaded == false && pl1ReadyButton.state == true
+            && pl2ReadyButton.state == true)
         {
             plShop.SetActive(false);
             if (BlackBackground.GetComponent<SpriteRenderer>().color.a > 0) {
                 BlackBackground.GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, 0.01f);
-                Debug.Log("loop");
             }
             else
             {
@@ -169,6 +169,6 @@ public class ArenaManager : MonoBehaviour
         arenaLoaded = false;
         gameEnded = false;
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("ArenaScene");
     }
 }

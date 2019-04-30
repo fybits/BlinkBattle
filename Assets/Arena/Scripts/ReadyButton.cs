@@ -19,12 +19,12 @@ public class ReadyButton : MonoBehaviour
 
         if (!arenaManager.pl1ReadyButton)
         {
-            arenaManager.pl1ReadyButton = GameObject.FindGameObjectWithTag("pl1Button").GetComponent<Button>();
+            arenaManager.pl1ReadyButton = GameObject.FindGameObjectWithTag("pl1Button").GetComponent<ReadyButton>();
         }
 
         if (!arenaManager.pl2ReadyButton)
         { 
-            arenaManager.pl2ReadyButton = GameObject.FindGameObjectWithTag("pl2Button").GetComponent<Button>();
+            arenaManager.pl2ReadyButton = GameObject.FindGameObjectWithTag("pl2Button").GetComponent<ReadyButton>();
         }
 
         text = GetComponentInChildren<TextMeshProUGUI>();

@@ -21,8 +21,8 @@ public class MiniGamesManager : MonoBehaviour
     void Start() {
         SceneManager.sceneLoaded += SceneManager_sceneLoaded;
         for (int i = 0; i < 2; i++) {
-            miniGames.Push(miniGamesPool[i]);
-            //miniGames.Push(miniGamesPool[Random.Range(0, miniGamesPool.Length)]);
+            //miniGames.Push(miniGamesPool[i]);
+            miniGames.Push(miniGamesPool[Random.Range(0, miniGamesPool.Length)]);
         }
         StartCoroutine("NextGame");
     }
