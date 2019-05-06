@@ -55,8 +55,8 @@ public class ArenaManager : MonoBehaviour
         }
         else
         {
-            pl1Score = 101;
-            pl2Score = 101;
+            pl1Score = 999;
+            pl2Score = 999;
         }
         pl1ScoreText.text = pl1Score.ToString();
         pl2ScoreText.text = pl2Score.ToString();
